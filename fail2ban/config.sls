@@ -23,7 +23,7 @@ include:
         config: {{ fail2ban.jails|yaml }}
 
 {% for name, config in fail2ban.actions|dictsort %}
-{{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.conf:
+{{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.local:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
